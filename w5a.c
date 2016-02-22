@@ -20,6 +20,23 @@ void clearBuffer(void){
 
 }
 
+/*
+this GCD function computes the GCD and returns the answer
+*/
+int findGCD(int n, int d){
+	int gcd = 1; //guess at what the gcd is
+	int i = 0; //loop counter
+	//write a loop to test whether a candidate gcd divides both n and d
+	for(i = 1; i <= n ; i++){
+		//i is our candidate gcd.. test it
+		if(n % i ==0 && d % i ==0 ){
+			//i divides both evenly, so it could be the gcd
+			gcd = i;
+		}
+	}
+	return gcd;
+}
+
 
 /*
 this function forces the user to enter two integers
@@ -64,7 +81,9 @@ int main(void){
 	//think of a function name that will get the numerator and denominator
 	//call your function and pass the numerator and deonminator by address
 	getIntegers(&numerator, &denominator);
-
+	
+	//TODO: call the gcd function and use its return value
+	
 	printf("The lowest common denominator of %d and %d is %d\n", numerator, denominator, gcd);
 }
 
