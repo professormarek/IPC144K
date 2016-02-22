@@ -8,6 +8,18 @@ but doesn't worry about 0's or negative numbers
 #include <stdio.h>
 
 //declare functions
+/*
+this function clears the buffer
+*/
+void clearBuffer(void){
+	char c = 0;
+	while(c != '\n'){
+		c = getchar();
+		printf("DEBUG: character left in buffer was: %c ASCII code: %d\n", c, c);
+	}
+
+}
+
 
 /*
 this function forces the user to enter two integers
@@ -20,9 +32,18 @@ void getIntegers(int *a, int *b){
 	int count = 0;
 	//prompt the user
 	printf("Enter two integers, numerator and denominator, separated by a space: ");
-	count = scanf("%d %d", &temp1, &temp2);
-	//TODO: ensure that the user correctly entered two integers
-
+	//encose scanf in a loop
+	while(count != 2  ){
+		count = scanf("%d %d", &temp1, &temp2);
+		//Always clear the buffer after every input!!
+		clearBuffer();
+		printf("DEBUG: count is: %d\n", count);
+		//if the user hans't entered two integers show them the alternate prompt
+		if(count != 2 ){
+			//show the erroor prompt
+			printf("ERROR! Please enter two integers separated by a space: ");
+		}
+	}
 	//once we're done - assign temporary variables to a and b
 	//how do you use the pointers to a and b?
 	*a = temp1;
