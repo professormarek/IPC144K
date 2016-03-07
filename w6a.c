@@ -3,8 +3,7 @@
 /*a function that displays a welcome message */
 
 void welcome(void){
-
-	//your implementation here
+	printf("WELCOME TO HEROES AND MONSTERS!!!\n Prepare to do battle...\n");
 
 }
 
@@ -56,8 +55,11 @@ void gameOver(void){
 
 }
 
-/* main function - implements combat (a battle) between a monster and a hero
+/* main function - implements combat (a battle) between a monster and a hero */
 int main(void){
 
+	//display welcome message
+	welcome();
+	
 
 }
