@@ -1,5 +1,19 @@
 #include <stdio.h>
 
+#define MAXIMUM_PLAYER_HEALTH 30
+
+/*
+this function clears the buffer
+*/
+void clearBuffer(void){
+	char c = 0;
+	while(c != '\n'){
+		c = getchar();
+	}
+
+}
+
+
 /*a function that displays a welcome message */
 
 void welcome(void){
@@ -11,8 +25,13 @@ void welcome(void){
 arguments */
 
 int getUserInteger(int minimum, int maximum){
+	int userInput = -1;
+	while(userInput < minimum || userInput > maximum){
+		printf("Enter a number (%d - %d):", minimum, maximum);
+		scanf("%d", &userInput);
+		clearBuffer();			
+	}
 
-	//your implementation here
 
 }
 
@@ -57,9 +76,13 @@ void gameOver(void){
 
 /* main function - implements combat (a battle) between a monster and a hero */
 int main(void){
+	//store the player's health
+	int playerHealth = 0;
 
 	//display welcome message
 	welcome();
-	
-
+	//get the starting health of the player
+	printf("What is the starting health of the player?: ");
+	playerHealth = getUserInteger(1,MAXIMUM_PLAYER_HEALTH);
+	printf("DEBUG: player entered maximum health: %d\n", playerHealth);
 }
