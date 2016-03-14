@@ -41,7 +41,7 @@ int getUserInteger(int minimum, int maximum){
 		scanf("%d", &userInput);
 		clearBuffer();			
 	}
-
+	return userInput;
 
 }
 
