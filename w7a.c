@@ -58,7 +58,7 @@ double searchPrice(int isbn_to_find, int i[], double p[], int count){
 		}
 	}
 	//if we didn't hit the return statement above we'll reach this point
-	printf("WARNING: ISBN %d not found!\n");
+	printf("WARNING: ISBN %d not found!\n", isbn_to_find);
 	//return a price of 0.0 as specified
 	return 0.0;
 }
