@@ -6,7 +6,21 @@ struct Weather{
 	float temperature;
 };
 
-
+/*
+this function accepts a struct Weather argument by value (not using a pointer)
+*/
+void testModifyStruct(struct Weather w){
+	//first let's display it
+	printf("testModifyStruct variable w: date %d, temperature %.1f, humidity %.1f\n",
+                         w.date, w.temperature, w.humidity);
+	//then we'll try to modify it
+	w.date = -1;
+	w.temperature = -1000;
+	w.humidity = -0.1;
+	printf("testModifyStruct variable w after modification: date %d, temperature %.1f, humidity %.1f\n", 
+                         w.date, w.temperature, w.humidity); 
+	
+}
 
 int main(void){
 
@@ -26,5 +40,9 @@ int main(void){
 	printf("today_copy after assignment: date %d, temperature %.1f, humidity %.1f\n",
                          today_copy.date, today_copy.temperature, today_copy.humidity);
 
-	
+	//call testModifyStruct to see if it will alter today_copy!
+	testModifyStruct(today_copy);
+	printf("today_copy after passing it to testModifyStruct: date %d, temperature %.1f, humidity %.1f\n",
+                         today_copy.date, today_copy.temperature, today_copy.humidity);
+
 }
