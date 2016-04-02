@@ -1,6 +1,16 @@
 #include <stdio.h>
 //needed for strlen function
 #include <string.h>
+
+/*
+saveMessage opens the file indicated by fileName for writing
+and writes the message to the file indicated by fileName
+recall: const is a promise that your function won’t alter the contents of the array (or variable)
+*/
+void saveMessage(const char fileName[], const char message[]){
+	//your implementation here
+}
+
 int main(void){
 	//declare and initalize a string of size 100
 	//remember that it will insert the null (0) terminating byte for you
@@ -27,5 +37,9 @@ int main(void){
 	scanf(" %99[^\n]", text);
 	int stringLength = strlen(text);
 	printf("the new string entered is: %s its length is: %d\n", text, stringLength);
+	
+	//use the saveMessage function to save the user-entered string to a file
+	saveMessage("data.txt", text);
+
 	return 0;
 }
